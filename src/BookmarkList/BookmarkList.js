@@ -5,7 +5,7 @@ import BookmarkItem from '../BookmarkItem/BookmarkItem';
 import './BookmarkList.css'
 
 class BookmarkList extends Component {
-  static proptTypes = {
+  static propTypes = {
     bookmarks: PropTypes.arrayOf(
       PropTypes.shape({
         id: PropTypes.oneOfType([

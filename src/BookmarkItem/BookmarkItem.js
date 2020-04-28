@@ -1,36 +1,46 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import Rating from '../Rating/Rating';
 import './BookmarkItem.css';
 
-export default function BookmarkItem(props) {
+export default class BookmarkItem extends Component {
+
+  render() {
   return (
     <li className='BookmarkItem'>
       <div className='BookmarkItem__row'>
         <h3 className='BookmarkItem__title'>
           <a
-            href={props.url}
+            href={this.props.url}
             target='_blank'
             rel='noopener noreferrer'>
-            {props.title}
+            {this.props.title}
           </a>
         </h3>
-        <Rating value={props.rating} />
+        <Rating value={this.props.rating} />
       </div>
       <p className='BookmarkItem__description'>
-        {props.description}
+        {this.props.description}
       </p>
       <div className='BookmarkItem__buttons'>
         <button
           className='BookmarkItem__description'
-          onClick={() => props.onClickDelete(props.id)}
+          onClick={() => this.props.onClickDelete(this.props.id)}
         >
           Delete
         </button>
+        <Link
+          className='BookmarkItem__description'
+          to={`/edit/${this.props.id}`}
+        >
+          Edit
+        </Link>
       </div>
     </li>
-  )
+
+  )}
 }
 
 BookmarkItem.defaultProps = {
-  onClickDelete: () => {},
+  onClickDelete: () => {console.log('delete clicked')},
 }

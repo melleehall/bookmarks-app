@@ -19,7 +19,17 @@
 
 .BookmarkItem__description {
   text-align: left;
-  margin: 4px 0;
+  margin: 4px 4px;
+  border: 1px solid #aaa;
+  background-color: #eee;
+  font-size: 1.1em;
+  border-radius: 4px;
+  text-decoration: none;
+}
+
+a.BookmarkItem__description:link,
+a.BookmarkItem__description:visited {
+  color: black;
 }
 
 .AddBookmarkItem__required {

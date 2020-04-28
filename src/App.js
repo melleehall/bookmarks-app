@@ -43,12 +43,12 @@ class App extends Component {
       method: 'GET',
       headers: {
         'content-type': 'application/json',
-        'Authorization': `Bearer ${config.API_KEY}`
+        // 'Authorization': `Bearer ${config.API_KEY}`
       }
     })
       .then(res => {
         if (!res.ok) {
-          throw new Error(res.status)
+          return res.json().then(error => Promise.reject(error))
         }
         return res.json()
       })
